@@ -90,7 +90,8 @@ CREATE TABLE dim_product (
     expiry_date           DATE,
     description           VARCHAR(1024),
     rating                FLOAT,
-    reviews_count         INT
+    reviews_count         INT,
+    product_quantity      INT
 );
 
 CREATE TABLE fact_sales (

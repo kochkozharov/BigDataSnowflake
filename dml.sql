@@ -135,7 +135,7 @@ WHERE product_material IS NOT NULL;
 INSERT INTO dim_product (
     product_id, name, category_id, brand_id, material_id,
     color, size, weight, release_date, expiry_date,
-    description, rating, reviews_count
+    description, rating, reviews_count, product_quantity
 )
 SELECT DISTINCT
   sale_product_id,
@@ -150,7 +150,8 @@ SELECT DISTINCT
   CAST(product_expiry_date AS DATE),
   product_description,
   product_rating,
-  product_reviews
+  product_reviews,
+  product_quantity
 FROM mock_data_raw raw
 LEFT JOIN dim_product_category pc ON raw.product_category = pc.category_name
 LEFT JOIN dim_brand             b  ON raw.product_brand    = b.brand_name
